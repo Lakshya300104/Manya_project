@@ -14,7 +14,7 @@ public class BuildApp {
     private static final String APP = "OfficeManagement";
     private static final String MAIN = "officemgtapp.Login";
     private static final List<String> DEPENDENCIES = List.of(
-            "jcalendar-1.4.jar", "mysql-connector-j-26.7.0.jar", "rs2xml.jar");
+            "jcalendar-1.4.jar", "mysql-connector-j-26.7.0.jar");
 
     public static void main(String[] args) throws Exception {
         Path project = Path.of("").toRealPath();
