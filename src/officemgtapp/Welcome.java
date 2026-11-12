@@ -92,7 +92,7 @@ public class Welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_bLoginActionPerformed
 
     private void bSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSignupActionPerformed
-        new SignUp().setVisible(true);            // open the Sign Up page
+        new Login(true).setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_bSignupActionPerformed
 

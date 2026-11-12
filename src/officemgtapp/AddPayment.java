@@ -4,8 +4,6 @@
  */
 package officemgtapp;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 
 /**
  *
@@ -14,9 +12,6 @@ import java.sql.PreparedStatement;
 public class AddPayment extends javax.swing.JFrame {
     
 
- Connection conn=null;
-    PreparedStatement pst=null;
-    int rst;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(AddPayment.class.getName());
 
@@ -25,7 +20,6 @@ public class AddPayment extends javax.swing.JFrame {
      */
     public AddPayment() {
         initComponents();
-        conn=MySQLConnect.ConnectDB();
     }
 
     /**
@@ -220,29 +214,7 @@ public class AddPayment extends javax.swing.JFrame {
     }//GEN-LAST:event_bClearCustomerInfoActionPerformed
 
     private void bAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAddCustomerActionPerformed
-        String Sql="insert into AddCustomer values (?,?,?,?,?)";
-        try{
-            pst = conn.prepareStatement(Sql);
-            pst.setString(2,this.tfCustomerName.getText());
-            pst.setString(3,this.tfCity.getText());
-            pst.setString(4,this.tfGST.getText());
-            pst.setString(1,this.tfEmail.getText());
-            pst.setString(5,this.tfPAN.getText());
-
-            int i = pst.executeUpdate();
-            if(i>0){
-
-                JOptionPane.showMessageDialog(null, " Customer Added");
-                new AddCustomer().setVisible(true);
-                this.dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Data is not saved");
-            }
-        }
-        catch(HeadlessException | SQLException e){
-            JOptionPane.showMessageDialog(null, e);
-        }
+        dispose();
     }//GEN-LAST:event_bAddCustomerActionPerformed
 
     private void bAddCustomer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAddCustomer1ActionPerformed

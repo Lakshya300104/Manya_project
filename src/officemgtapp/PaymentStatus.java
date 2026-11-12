@@ -4,24 +4,12 @@
  */
 package officemgtapp;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author manyamittal
  */
 public class PaymentStatus extends javax.swing.JFrame {
-    Connection conn=null;
-    PreparedStatement pst=null;
-    PreparedStatement pst1=null;
-    ResultSet rs=null;
-    ResultSet rs1=null;
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PaymentStatus.class.getName());
 
@@ -29,22 +17,8 @@ public class PaymentStatus extends javax.swing.JFrame {
      * Creates new form PaymentStatus
      */
     public PaymentStatus() {
-        conn=MySQLConnect.ConnectDB();
-        displayItem();
         initComponents();
     }
-     public void displayItem() 
-    {
-        String sql ="select * from exitgoods";
-        try {
-            pst = conn.prepareStatement(sql);
-             rs=pst.executeQuery();
-             tExits.setModel(DbUtils.resultSetToTableModel(rs));
-        }
-        catch (SQLException ex) {
-            Logger.getLogger(CheckEntries.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        }
 
     /**
      * This method is called from within the constructor to initialize the form.

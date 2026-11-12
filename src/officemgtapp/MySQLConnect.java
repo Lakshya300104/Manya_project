@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package officemgtapp;
-import java.sql.*;
-import javax.swing.*;
-public class MySQLConnect { 
-    Connection conn=null;
-    public static Connection ConnectDB(){
-        try{
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:8889/OfficeMgtSystemDB","root","root");
-            return conn;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public final class MySQLConnect {
+    private MySQLConnect() {}
+
+    public static Connection ConnectDB() {
+        try {
+            return new Database().connect();
+        } catch (IOException | SQLException ex) {
+            throw new IllegalStateException("Could not connect to office_mgt. Check mysql.local.properties.", ex);
         }
-    catch(ClassNotFoundException | SQLException e){
-    JOptionPane.showMessageDialog(null,e);
-    return null;
-    }
     }
 }
